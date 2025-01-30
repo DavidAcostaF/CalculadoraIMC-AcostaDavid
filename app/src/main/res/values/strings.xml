@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Asignacion4_CalculadoraIMC_Acosta</string>
+    <string name="estatura">Estatura</string>
+    <string name="peso">Peso</string>
+    <string name="IMC">CALCULAR</string>
+    <string name="ingrese_peso">Ingrese el peso</string>
+    <string name="ingrese_estatura">Ingrese la estatura</string>
+    <string name="logo_descripcion">Chopper</string>
+
+</resources>
