@@ -27,21 +27,32 @@ class MainActivity : AppCompatActivity() {
         val range:TextView = findViewById(R.id.range)
 
         calculateButton.setOnClickListener{
-            val userIMC = weight.text.toString().toFloat() / (height.text.toString().toFloat() * height.text.toString().toFloat())
-            if(userIMC<18.5){
-                range.text = "Bajo peso"
-            }else if(userIMC in 18.5..24.9){
-                range.text = "Normal"
-            }else if(userIMC in 25.0..29.9){
-                range.text = "Sobrepeso"
-            }else if(userIMC in 30.0..34.9){
-                range.text = "Obesidad grado 1"
-            }else if(userIMC in 35.0..39.9){
-                range.text = "Obesidad grado 2"
-            }else if(userIMC>= 40){
-                range.text = "Obesidad grado 3"
+            if(weight.text.isEmpty() && height.text.isEmpty()){
+                return@setOnClickListener
+
             }
-            imc.text = String.format(Locale.getDefault(), "IMC: %.2f", userIMC)
+
+            val userIMC = weight.text.toString().toFloat() / (height.text.toString().toFloat() * height.text.toString().toFloat())
+            if (userIMC < 18.5) {
+                range.text = "Bajo peso"
+                range.setBackgroundResource(R.color.colorYellow)
+            } else if (userIMC in 18.5..24.9) {
+                range.text = "Normal"
+                range.setBackgroundResource(R.color.colorGreen)
+            } else if (userIMC in 25.0..29.9) {
+                range.text = "Sobrepeso"
+                range.setBackgroundResource(R.color.colorOrange)
+            } else if (userIMC in 30.0..34.9) {
+                range.text = "Obesidad grado 1"
+                range.setBackgroundResource(R.color.colorRed)
+            } else if (userIMC in 35.0..39.9) {
+                range.text = "Obesidad grado 2"
+                range.setBackgroundResource(R.color.colorBrown)
+            } else if (userIMC >= 40) {
+                range.text = "Obesidad grado 3"
+                range.setBackgroundResource(R.color.colorRed)
+            }
+            imc.text = String.format("IMC: %.2f", userIMC)
 
         }
     }
